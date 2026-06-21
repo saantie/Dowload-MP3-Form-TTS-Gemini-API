@@ -120,7 +120,6 @@
         // 2. ส่งข้อมูลไปยัง Apps Script แทนที่จะส่งไปหา Google Cloud โดยตรง
         const response = await fetch(appsScriptUrl, {
             method: 'POST',
-            mode: 'no-cors', // ใส่บรรทัดนี้เพื่อป้องกันปัญหา Cross-Origin
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 text: text, 
