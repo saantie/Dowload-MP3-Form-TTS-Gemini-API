@@ -174,9 +174,13 @@
             btnGen.disabled = false;
 
         } catch (error) {
-            statusText.innerText = "❌ เกิดข้อผิดพลาด";
+            // 1. นำ Error มาแสดงเป็นตัวอักษรสีแดงบนหน้าเว็บ (ทำให้ลากเมาส์ก๊อปปี้ได้)
+            statusText.innerHTML = `<span style="color: red; word-break: break-all;">❌ Error: ${error.message}</span>`;
             btnGen.disabled = false;
-            alert('Error: ' + error.message);
+            
+            // 2. บันทึก Log ลงในระบบของเบราว์เซอร์ (สำหรับดูรายละเอียดเชิงลึก)
+            console.error("🚨 ตรวจพบปัญหาการเรียก API:");
+            console.error(error);
         }
     }
 
